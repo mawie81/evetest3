@@ -13,10 +13,10 @@
   <p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
 </div>
 
-<div class="row marketing">
-  <div ng-repeat="thing in awesomeThings">
-      <h4>{{thing.name}}</h4>
-      <p>{{thing.info}}</p>
+<div class="list-group">
+  <div class="list-group-item" ng-repeat="e in eve">
+    <h4 class="list-group-item-header">{{e.regionName}} - {{e.factionName}}</h4>
+    <p class="list-group-item-text">{{e.description}}</p>
   </div>
 </div>
 
