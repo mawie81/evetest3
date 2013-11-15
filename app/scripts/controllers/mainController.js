@@ -5,7 +5,7 @@ angular.module('evetest3App')
     testService.getThings().success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
     });
-    testService.getTest().success(function(data) {
+    testService.eveTest().success(function(data) {
     	$scope.eve = data;
     });
 
