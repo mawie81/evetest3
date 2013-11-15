@@ -13,6 +13,9 @@ angular.module('evetest3App')
       },
       getTest: function () {
         return $http.get('api/test');
+      },
+      eveTest: function() {
+        return $http.get('api/testEveapi');
       }
     };
   });
