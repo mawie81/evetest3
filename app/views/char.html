@@ -15,7 +15,7 @@
 					<td><img src="http://image.eveonline.com/Type/{{order.typeID}}_32.png" /></td>
 					<td>{{order.type}}</td>
 					<td>{{order.volRemaining}} / {{order.volEntered}}</td>
-					<td>{{order.price}}</td>
+					<td>{{order.price | currency:"ISK "}}</td>
 				</tr>
 			</tbody>	
 		</table>
@@ -36,7 +36,7 @@
 					<td><img src="http://image.eveonline.com/Type/{{order.typeID}}_32.png" /></td>
 					<td>{{order.type}}</td>
 					<td>{{order.volRemaining}} / {{order.volEntered}}</td>
-					<td>{{order.price}}</td>
+					<td>{{order.price | currency:"ISK "}}</td>
 				</tr>
 			</tbody>	
 		</table>

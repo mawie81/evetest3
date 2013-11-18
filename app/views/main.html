@@ -17,7 +17,7 @@
   <div class="list-group-item" ng-repeat="e in eve">
     <h3 class="list-group-item-header">{{e.charName}}</h3>
     <a href='#/char/{{e.charId}}'><img src="http://image.eveonline.com/character/{{e.charId}}_128.jpg" class="img-rounded"></img></a>
-    <h4>Balance: {{e.balance}}</h4>
+    <h4>Balance: {{e.balance | currency:"ISK "}}</h4>
   </div>
 </div>
 
