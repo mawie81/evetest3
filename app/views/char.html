@@ -1,44 +1,9 @@
 <h2>Orders</h2>
 <tabset>
 	<tab heading="Buy orders">
-		<table class="table">
-			<thead>
-				<tr>
-					<td>#</td>
-					<td>Item</td>
-					<td>Volume</td>
-					<td>Price</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="order in buyOrders">
-					<td><img src="http://image.eveonline.com/Type/{{order.typeID}}_32.png" /></td>
-					<td>{{order.type}}</td>
-					<td>{{order.volRemaining}} / {{order.volEntered}}</td>
-					<td>{{order.price | currency:"ISK "}}</td>
-				</tr>
-			</tbody>	
-		</table>
-		<!--<eveOrderList orders="buyOrders" ></eveOrderList>-->
+		<eve-order-list orders="buyOrders" />
 	</tab>
 	<tab heading="Sell orders">
-		<table class="table">
-			<thead>
-				<tr>
-					<td>#</td>
-					<td>Item</td>
-					<td>Volume</td>
-					<td>Price</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="order in sellOrders">
-					<td><img src="http://image.eveonline.com/Type/{{order.typeID}}_32.png" /></td>
-					<td>{{order.type}}</td>
-					<td>{{order.volRemaining}} / {{order.volEntered}}</td>
-					<td>{{order.price | currency:"ISK "}}</td>
-				</tr>
-			</tbody>	
-		</table>
+		<eve-order-list orders="sellOrders" />
 	</tab>
 </tabset>
