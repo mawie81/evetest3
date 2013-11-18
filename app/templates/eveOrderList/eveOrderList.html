@@ -1,0 +1,19 @@
+<h1>Test</h1>
+<table class="table">
+	<thead>
+		<tr>
+			<td>#</td>
+			<td>Item</td>
+			<td>Volume</td>
+			<td>Price</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="order in orders">
+			<td><img src="http://image.eveonline.com/Type/{{order.typeID}}_32.png" /></td>
+			<td>{{order.type}}</td>
+			<td>{{order.volRemaining}} / {{order.volEntered}}</td>
+			<td>{{order.price}}</td>
+		</tr>
+	</tbody>	
+</table>

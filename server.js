@@ -29,11 +29,8 @@ app.configure('production', function(){
 });
 
 // Routes
-app.get('/api/awesomeThings', api.awesomeThings);
-app.get('/api/test', api.test);
-app.get('/api/testEveapi', api.testEveapi);
-
-app.get('/api/testEveapi2', api.testEveapi2);
+app.get('/api/getChars', api.getChars);
+app.get('/api/getOrders/:charId', api.getOrders);
 
 // Start server
 var port = process.env.PORT || 3000;
