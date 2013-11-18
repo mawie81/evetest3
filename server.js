@@ -33,6 +33,8 @@ app.get('/api/awesomeThings', api.awesomeThings);
 app.get('/api/test', api.test);
 app.get('/api/testEveapi', api.testEveapi);
 
+app.get('/api/testEveapi2', api.testEveapi2);
+
 // Start server
 var port = process.env.PORT || 3000;
 app.listen(port, function () {
