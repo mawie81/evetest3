@@ -5,6 +5,8 @@
 			<td>Item</td>
 			<td>Volume</td>
 			<td>Price</td>
+			<td>Jita sell</td>
+			<td>Local sell</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -12,7 +14,9 @@
 			<td><img src="http://image.eveonline.com/Type/{{order.typeID}}_32.png" /></td>
 			<td>{{order.type}}</td>
 			<td>{{order.volRemaining}} / {{order.volEntered}}</td>
-			<td>{{order.price}}</td>
+			<td>{{order.price | currency:'' }}</td>
+			<td>{{order.jitasell | currency:'' }}</td>
+			<td>{{order.localsell | currency:'' }}</td>
 		</tr>
 	</tbody>	
 </table>
