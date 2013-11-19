@@ -1,0 +1,27 @@
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <h3 class="text-muted">EVE Monitor</h3>
+</div>
+
+<div class="col-md-8">
+	<h2>Orders</h2>
+</div>
+<div class="col-md-4">
+	<input ng-model="searchText" type="text" class="form-control" placeholder="Search"/>
+</div>
+
+<div class="pull-left" style="margin-top: 5px;">
+	<tabset>
+		<tab heading="Buy orders">
+			<eve-order-list orders="buyOrders" search="searchText" />
+		</tab>
+		<tab heading="Sell orders">
+			<eve-order-list orders="sellOrders" search="searchText"/>
+		</tab>
+	</tabset>
+</div>
+

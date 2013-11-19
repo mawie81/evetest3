@@ -7,16 +7,18 @@
 			<td>Price</td>
 			<td>Jita sell</td>
 			<td>Local sell</td>
+			<td>Margin</td>
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="order in orders">
+		<tr ng-repeat="order in orders | filter:search" ng-class="order.margin < 0 ? 'danger' : order.margin >= 10 ? 'success' : order.margin >= 5 ? 'warning' : ''">
 			<td><img src="http://image.eveonline.com/Type/{{order.typeID}}_32.png" /></td>
 			<td>{{order.type}}</td>
 			<td>{{order.volRemaining}} / {{order.volEntered}}</td>
 			<td>{{order.price | currency:'' }}</td>
 			<td>{{order.jitasell | currency:'' }}</td>
 			<td>{{order.localsell | currency:'' }}</td>
+			<td>{{order.margin | number:0 }}%</td>
 		</tr>
 	</tbody>	
 </table>

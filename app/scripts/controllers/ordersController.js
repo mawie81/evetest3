@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('evetest3App')
-  .controller('CharCtrl', function ($scope, $routeParams, eveService) {
+  .controller('OrdersCtrl', function ($scope, $routeParams, eveService) {
   	window.scope = $scope;
     $scope.charId = $routeParams.charId;
     $scope.buyOrders = [];
     $scope.sellOrders = [];
+    $scope.searchText = '';
 
     eveService.getOrders($routeParams.charId).success(function(data) {
     	if (!data) return;
