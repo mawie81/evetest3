@@ -13,7 +13,8 @@ angular.module('evetest3App')
         console.log('eveOrderList');
       }*/
       scope: {
-      	orders: '='
+      	orders: '=',
+        search: '='
       }
     };
   });
