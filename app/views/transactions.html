@@ -22,15 +22,15 @@
 				<thead>
 					<tr>
 						<td>#</td>
-						<td>Date</td>
-						<td>Station</td>
-						<td>Item</td>
-						<td>Volume</td>
-						<td>Price</td>
+						<td ng-click="changeSorting('transactionDateTime')">Date</td>
+						<td ng-click="changeSorting('stationName')">Station</td>
+						<td ng-click="changeSorting('typeName')">Item</td>
+						<td ng-click="changeSorting('quantity')">Volume</td>
+						<td ng-click="changeSorting('price')">Price</td>
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="transaction in transactions | filter:searchText | orderBy:+transactionDateTime" >
+					<tr ng-repeat="transaction in transactions | filter:searchText | orderBy:sort.column:sort.descending" >
 						<td><img src="http://image.eveonline.com/Type/{{transaction.typeID}}_32.png" /></td>
 						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.transactionDateTime | date:'dd.MM.yyyy HH:mm:ss'}}</td>
 						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.stationName}}</td>

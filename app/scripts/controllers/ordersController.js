@@ -2,7 +2,6 @@
 
 angular.module('evetest3App')
   .controller('OrdersCtrl', function ($scope, $routeParams, eveService) {
-  	window.scope = $scope;
     $scope.charId = $routeParams.charId;
     $scope.buyOrders = [];
     $scope.sellOrders = [];

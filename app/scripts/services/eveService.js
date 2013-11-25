@@ -16,6 +16,9 @@ angular.module('evetest3App')
       },
       getTransactions: function(charId) {
         return $http.get('api/transactions/' + charId);
+      },
+      getJournal: function(charId) {
+        return $http.get('api/journal/' + charId + '/' + '50');
       }
     };
   });
