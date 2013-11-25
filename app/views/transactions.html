@@ -16,22 +16,54 @@
 </div>
 
 <div class="pull-left" style="margin-top: 5px;">
-	<table class="table">
-		<thead>
-			<tr>
-				<td>#</td>
-				<td>Item</td>
-				<td>Volume</td>
-				<td>Price</td>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="transaction in transactions | filter:searchText" >
-				<td><img src="http://image.eveonline.com/Type/{{transaction.typeID}}_32.png" /></td>
-				<td>{{transaction.typeName}}</td>
-				<td>{{transaction.quantity}}</td>
-				<td>{{transaction.price | currency:'' }}</td>
-			</tr>
-		</tbody>	
-	</table>
+	<tabset>
+		<tab heading="Transactions">
+			<table class="table">
+				<thead>
+					<tr>
+						<td>#</td>
+						<td>Date</td>
+						<td>Station</td>
+						<td>Item</td>
+						<td>Volume</td>
+						<td>Price</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="transaction in transactions | filter:searchText | orderBy:+transactionDateTime" >
+						<td><img src="http://image.eveonline.com/Type/{{transaction.typeID}}_32.png" /></td>
+						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.transactionDateTime | date:'dd.MM.yyyy HH:mm:ss'}}</td>
+						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.stationName}}</td>
+						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.typeName}}</td>
+						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.quantity}}</td>
+						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.price | currency:'' }}</td>
+					</tr>
+				</tbody>	
+			</table>
+		</tab>
+		<tab heading="Journal">
+			<table class="table">
+				<thead>
+					<tr>
+						<td>#</td>
+						<td>Date</td>
+						<td>Station</td>
+						<td>Item</td>
+						<td>Volume</td>
+						<td>Price</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="transaction in transactions | filter:searchText | orderBy:+transactionDateTime" >
+						<td><img src="http://image.eveonline.com/Type/{{transaction.typeID}}_32.png" /></td>
+						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.transactionDateTime | date:'dd.MM.yyyy HH:mm:ss'}}</td>
+						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.stationName}}</td>
+						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.typeName}}</td>
+						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.quantity}}</td>
+						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.price | currency:'' }}</td>
+					</tr>
+				</tbody>	
+			</table>
+		</tab>
+	</tabset>
 </div>
