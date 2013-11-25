@@ -29,8 +29,9 @@ app.configure('production', function(){
 });
 
 // Routes
-app.get('/api/getChars', api.getChars);
-app.get('/api/getOrders/:charId', api.getOrders);
+app.get('/api/chars', api.getChars);
+app.get('/api/orders/:charId', api.getOrders);
+app.get('/api/transactions/:charId', api.getTransactions);
 
 // Start server
 var port = process.env.PORT || 3000;

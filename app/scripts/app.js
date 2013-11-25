@@ -18,6 +18,10 @@ angular.module('evetest3App', [
         templateUrl: 'views/orders.html',
         controller: 'OrdersCtrl'
       })
+      .when('/transactions/:charId', {
+        templateUrl: 'views/transactions.html',
+        controller: 'TransactionsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -1,0 +1,37 @@
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#">Price check</a></li>
+  </ul>
+  <h3 class="text-muted">EVE Monitor</h3>
+</div>
+
+<div class="col-md-8">
+	<h2>Transactions</h2>
+</div>
+<div class="col-md-4">
+	<input ng-model="searchText" type="text" class="form-control" placeholder="Search"/>
+</div>
+
+<div class="pull-left" style="margin-top: 5px;">
+	<table class="table">
+		<thead>
+			<tr>
+				<td>#</td>
+				<td>Item</td>
+				<td>Volume</td>
+				<td>Price</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="transaction in transactions | filter:searchText" >
+				<td><img src="http://image.eveonline.com/Type/{{transaction.typeID}}_32.png" /></td>
+				<td>{{transaction.typeName}}</td>
+				<td>{{transaction.quantity}}</td>
+				<td>{{transaction.price | currency:'' }}</td>
+			</tr>
+		</tbody>	
+	</table>
+</div>
