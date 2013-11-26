@@ -2,6 +2,7 @@
 
 angular.module('evetest3App')
   .controller('TransactionsCtrl', function ($scope, $routeParams, eveService) {
+    window.scope = $scope;
   	$scope.searchText = '';
   	$scope.sort = {
             column: 'transactionDateTime',

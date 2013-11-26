@@ -32,11 +32,11 @@
 				<tbody>
 					<tr ng-repeat="transaction in transactions | filter:searchText | orderBy:sort.column:sort.descending" >
 						<td><img src="http://image.eveonline.com/Type/{{transaction.typeID}}_32.png" /></td>
-						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.transactionDateTime | date:'dd.MM.yyyy HH:mm:ss'}}</td>
-						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.stationName}}</td>
-						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.typeName}}</td>
-						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.quantity}}</td>
-						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.price | currency:'' }}</td>
+						<td ng-class="transaction.transactionType == 'buy' ? 'text-danger' : 'text-success'">{{transaction.transactionDateTime | date:'dd.MM.yyyy HH:mm:ss'}}</td>
+						<td ng-class="transaction.transactionType == 'buy' ? 'text-danger' : 'text-success'">{{transaction.stationName}}</td>
+						<td ng-class="transaction.transactionType == 'buy' ? 'text-danger' : 'text-success'">{{transaction.typeName}}</td>
+						<td ng-class="transaction.transactionType == 'buy' ? 'text-danger' : 'text-success'">{{transaction.quantity}}</td>
+						<td ng-class="transaction.transactionType == 'buy' ? 'text-danger' : 'text-success'">{{transaction.price | currency:'' }}</td>
 					</tr>
 				</tbody>	
 			</table>
