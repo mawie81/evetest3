@@ -4,6 +4,14 @@
     <li><a href="#">About</a></li>
     <li><a href="#">Contact</a></li>
     <li><a href="#">Price check</a></li>
+    <li class="dropdown">
+	    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+	      Chararcter <span class="caret"></span>
+	    </a>
+	    <ul class="dropdown-menu">
+	    	<li ng-repeat="character in characters"><a href="#{{staticRoutePart}}{{character.charID}}">{{character.charName}}</a></li>
+	    </ul>
+  	</li>
   </ul>
   <h3 class="text-muted">EVE Monitor</h3>
 </div>
@@ -22,16 +30,16 @@
 				<thead>
 					<tr>
 						<td>#</td>
-						<td ng-click="changeSorting('transactionDateTime')">Date</td>
-						<td ng-click="changeSorting('stationName')">Station</td>
-						<td ng-click="changeSorting('typeName')">Item</td>
-						<td ng-click="changeSorting('quantity')">Volume</td>
-						<td ng-click="changeSorting('price')">Price</td>
+						<td ng-click="changeTransactionSorting('transactionDateTime')">Date</td>
+						<td ng-click="changeTransactionSorting('stationName')">Station</td>
+						<td ng-click="changeTransactionSorting('typeName')">Item</td>
+						<td ng-click="changeTransactionSorting('quantity')">Volume</td>
+						<td ng-click="changeTransactionSorting('price')">Price</td>
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="transaction in transactions | filter:searchText | orderBy:sort.column:sort.descending" >
-						<td><img src="http://image.eveonline.com/Type/{{transaction.typeID}}_32.png" /></td>
+					<tr ng-repeat="transaction in transactions | filter:searchText | orderBy:sortTransaction.column:sortTransaction.descending" >
+						<td><img src="http://image.eveonline.com/Type/{{transaction.typeID}}_32.png" tooltip="{{transaction.description}}" /></td>
 						<td ng-class="transaction.transactionType == 'buy' ? 'text-danger' : 'text-success'">{{transaction.transactionDateTime | date:'dd.MM.yyyy HH:mm:ss'}}</td>
 						<td ng-class="transaction.transactionType == 'buy' ? 'text-danger' : 'text-success'">{{transaction.stationName}}</td>
 						<td ng-class="transaction.transactionType == 'buy' ? 'text-danger' : 'text-success'">{{transaction.typeName}}</td>
@@ -45,22 +53,20 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<td>#</td>
-						<td>Date</td>
-						<td>Station</td>
-						<td>Item</td>
-						<td>Volume</td>
-						<td>Price</td>
+						<td ng-click="changeJournalSorting('date')">Date</td>
+						<td ng-click="changeJournalSorting('refTypeName')">Type</td>
+						<td>Participant</td>
+						<td ng-click="changeJournalSorting('reason')">Reason</td>
+						<td ng-click="changeJournalSorting('amount')">Amount</td>
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="transaction in transactions | filter:searchText | orderBy:+transactionDateTime" >
-						<td><img src="http://image.eveonline.com/Type/{{transaction.typeID}}_32.png" /></td>
-						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.transactionDateTime | date:'dd.MM.yyyy HH:mm:ss'}}</td>
-						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.stationName}}</td>
-						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.typeName}}</td>
-						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.quantity}}</td>
-						<td ng-class="transaction.price < 0 ? 'text-danger' : 'text-success'">{{transaction.price | currency:'' }}</td>
+					<tr ng-repeat="transaction in journal | filter:searchText | orderBy:sortJournal.column:sortJournal.descending" >
+						<td ng-class="transaction.isWithdrawl ? 'text-danger' : 'text-success'">{{transaction.date | date:'dd.MM.yyyy HH:mm:ss'}}</td>
+						<td ng-class="transaction.isWithdrawl ? 'text-danger' : 'text-success'">{{transaction.refTypeName}}</td>
+						<td ng-class="transaction.isWithdrawl ? 'text-danger' : 'text-success'">{{getParticipant(transaction)}}</td>
+						<td ng-class="transaction.isWithdrawl ? 'text-danger' : 'text-success'">{{transaction.reason}}</td>
+						<td ng-class="transaction.isWithdrawl ? 'text-danger' : 'text-success'">{{transaction.amount | currency:'' }}</td>
 					</tr>
 				</tbody>	
 			</table>

@@ -33,6 +33,7 @@ app.get('/api/chars', api.getChars);
 app.get('/api/orders/:charId', api.getOrders);
 app.get('/api/transactions/:charId', api.getTransactions);
 app.get('/api/journal/:charId/:rowCount', api.getJournal);
+app.get('/api/charIDsAndName', api.getCharacterIdAndName);
 
 // Start server
 var port = process.env.PORT || 3000;
