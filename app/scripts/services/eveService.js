@@ -22,6 +22,11 @@ angular.module('evetest3App')
       },
       getCharIDs: function() {
         return $http.get('api/charIDsAndName');
+      },
+      itemSearch: function(name) {
+         return $http.get('api/itemsearch/' + name).then(function(response) {
+            return response.data;
+         });
       }
     };
   });

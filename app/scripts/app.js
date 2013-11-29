@@ -22,6 +22,10 @@ angular.module('evetest3App', [
         templateUrl: 'views/transactions.html',
         controller: 'TransactionsCtrl'
       })
+      .when('/pricecheck', {
+        templateUrl: 'views/pricecheck.html',
+        controller: 'PricecheckCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
