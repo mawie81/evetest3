@@ -27,6 +27,14 @@ angular.module('evetest3App')
          return $http.get('api/itemsearch/' + name).then(function(response) {
             return response.data;
          });
+      },
+      stationSearch: function(name) {
+         return $http.get('api/stationsearch/' + name).then(function(response) {
+            return response.data;
+         });
+      },
+      fetchprices: function(stationID, typeIDs) {
+        return $http.get('api/fetchprices?station=' + stationID + '&typeIDs=' + typeIDs.join());
       }
     };
   });

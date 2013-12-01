@@ -43,7 +43,7 @@
 	<div class="form-group">
 		<label for="station" class="col-sm-2 control-label">Station: </label>
 		<div class="col-sm-8">
-			<input id="station" type="text" ng-model="selectedStationName" typeahead-on-select="onSelectStation($item)" typeahead-wait-ms="300" typeahead="k for k in searchStation($viewValue) | limitTo:20" class="form-control">
+			<input id="station" type="text" ng-model="selectedStationName" typeahead-on-select="onSelectStation($item)" typeahead-wait-ms="300" typeahead="k.stationName for k in searchStation($viewValue) | limitTo:20" class="form-control">
 		</div>
 		<div class="col-sm-2">
 			&nbsp;
@@ -59,18 +59,23 @@
 			<td>#</td>
 			<td>Name</td>
 			<td>Local sell</td>
+			<td>Local buy</td>
+			<td>Local margin</td>
 			<td>Jita sell</td>
 			<td>Jita buy</td>
-			<td>Margin</td>
+			<td>Margin local vs. Jita sell</td>
 		</tr>
 	</thead>
 	<tbody>
 		<tr ng-repeat="item in selectedItems">
 			<td><img src="http://image.eveonline.com/Type/{{item.typeID}}_32.png" /></td>
 			<td>{{item.typeName}}</td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td>{{item.localsell | currency:""}}</td>
+			<td>{{item.localbuy | currency:""}}</td>
+			<td ng-class="getMargin(item.localsell, item.localbuy) < 0 ? 'danger' : getMargin(item.localsell, item.localbuy) >= 10 ? 'success' : getMargin(item.localsell, item.localbuy) >= 5 ? 'warning' : ''">{{getMargin(item.localsell, item.localbuy) | number:0}}</td>
+			<td>{{item.jitasell | currency:""}}</td>
+			<td>{{item.jitabuy| currency: ""}}</td>
+			<td ng-class="getMargin(item.localsell, item.jitasell) < 0 ? 'danger' : getMargin(item.localsell, item.jitasell) >= 10 ? 'success' : getMargin(item.localsell, item.jitasell) >= 5 ? 'warning' : ''">{{getMargin(item.localsell, item.jitasell) | number:0}}</td>
 		</tr>
 	</tbody>	
 </table>
