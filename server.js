@@ -37,6 +37,7 @@ app.get('/api/charIDsAndName', api.getCharacterIdAndName);
 app.get('/api/itemsearch/:itemname', api.itemsearch);
 app.get('/api/stationsearch/:stationname', api.stationsearch);
 app.get('/api/fetchprices', api.fetchprices);
+app.get('/api/skillInTraining/:charId', api.skillInTraining);
 
 // Start server
 var port = process.env.PORT || 3000;
