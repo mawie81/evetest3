@@ -32,12 +32,12 @@
 	<div class="form-group">
 		<label for="char" class="col-sm-2 control-label">Character: </label>
 		<div class="col-sm-8">
-			<select class="form-control" ng-model="selectedCharName" ng-options="char for char in chars">
+			<select class="form-control" ng-model="selectedChar" ng-options="char.charName for char in chars">
 				<option value="">-- select char --</option>
 			</select>
 		</div>
 		<div class="col-sm-2">
-			<button ng-click="fecthFromChar()" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
+			<button ng-click="fetchFromChar()" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></button>
 		</div>
 	</div>
 	<div class="form-group">
@@ -53,29 +53,33 @@
 
 <br />
 
+<div class="col-md-4 col-md-offset-8">
+	<input ng-model="searchText" type="text" class="form-control" placeholder="Search"/>
+</div>
+
 <table class="table">
 	<thead>
 		<tr>
 			<td>#</td>
-			<td>Name</td>
-			<td>Local sell</td>
-			<td>Local buy</td>
-			<td>Local margin</td>
-			<td>Jita sell</td>
-			<td>Jita buy</td>
-			<td>Margin local vs. Jita sell</td>
+			<td ng-click="changeSorting('typeName')">Name</td>
+			<td ng-click="changeSorting('localSell')">Local sell</td>
+			<td ng-click="changeSorting('localBuy')">Local buy</td>
+			<td ng-click="changeSorting('localMargin')">Local margin</td>
+			<td ng-click="changeSorting('jitaSell')">Jita sell</td>
+			<td ng-click="changeSorting('jitaBuy')">Jita buy</td>
+			<td ng-click="changeSorting('jitaMargin')">Margin local vs. Jita sell</td>
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="item in selectedItems">
+		<tr ng-repeat="item in selectedItems | filter:searchText | orderBy:sort.column:sort.descending">
 			<td><img src="http://image.eveonline.com/Type/{{item.typeID}}_32.png" /></td>
 			<td>{{item.typeName}}</td>
 			<td>{{item.localsell | currency:""}}</td>
 			<td>{{item.localbuy | currency:""}}</td>
-			<td ng-class="getMargin(item.localsell, item.localbuy) < 0 ? 'danger' : getMargin(item.localsell, item.localbuy) >= 10 ? 'success' : getMargin(item.localsell, item.localbuy) >= 5 ? 'warning' : ''">{{getMargin(item.localsell, item.localbuy) | number:0}}</td>
+			<td ng-class="item.localMargin < 0 ? 'danger' : item.localMargin >= 10 ? 'success' : item.localMargin >= 5 ? 'warning' : ''">{{item.localMargin | number:0}}</td>
 			<td>{{item.jitasell | currency:""}}</td>
 			<td>{{item.jitabuy| currency: ""}}</td>
-			<td ng-class="getMargin(item.localsell, item.jitasell) < 0 ? 'danger' : getMargin(item.localsell, item.jitasell) >= 10 ? 'success' : getMargin(item.localsell, item.jitasell) >= 5 ? 'warning' : ''">{{getMargin(item.localsell, item.jitasell) | number:0}}</td>
+			<td ng-class="item.jitaMargin < 0 ? 'danger' : item.jitaMargin >= 10 ? 'success' : item.jitaMargin >= 5 ? 'warning' : ''">{{item.jitaMargin | number:0}}</td>
 		</tr>
 	</tbody>	
 </table>
