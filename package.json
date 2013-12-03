@@ -2,7 +2,11 @@
   "name": "evetest3",
   "version": "0.0.0",
   "dependencies": {
-    "express": "~3.4.3"
+    "express": "~3.4.3",
+    "sqlite3": "~2.1.19",
+    "sax": "~0.5.5",
+    "async": "~0.2.9",
+    "xml2js": "~0.4.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
