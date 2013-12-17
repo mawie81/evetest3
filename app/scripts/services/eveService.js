@@ -36,8 +36,11 @@ angular.module('evetest3App')
       fetchprices: function(stationID, typeIDs) {
         return $http.get('api/fetchprices?station=' + stationID + '&typeIDs=' + typeIDs.join());
       },
-      skillInTrainung: function(charId) {
+      skillInTraining: function(charId) {
         return $http.get('api/skillInTraining/' + charId);
+      },
+      getMail: function(charId) {
+        return $http.get('api/mail/' + charId);
       }
     };
   });

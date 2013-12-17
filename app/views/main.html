@@ -33,12 +33,16 @@
       <div class="col-md-3"><p class="text-left">Alliance:</p></div>
       <div class="col-md-9">{{char.allianceName}}</div>
     </div>
+    <div class="row">
+      <div class="col-md-3"><p class="text-left">Skill in training:</p></div>
+      <div class="col-md-9">{{getSkillNameInTraining(char.charId)}}</div>
+    </div>
   </div>
   <div class="col-md-3">
     <ul class="nav nav-pills nav-stacked">
       <li><a href='#/orders/{{char.charId}}'>Orders</a></li>
       <li><a href='#/transactions/{{char.charId}}'>Transactions</a></li>
-      <li><a href="#">Mail</a></li>
+      <li><a href="#/mail/{{char.charId}}">Mail</a></li>
       <li><a href="#">Skills</a></li>
     </ul>
   </div>

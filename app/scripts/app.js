@@ -26,6 +26,10 @@ angular.module('evetest3App', [
         templateUrl: 'views/pricecheck.html',
         controller: 'PricecheckCtrl'
       })
+      .when('/mail/:charId', {
+        templateUrl: 'views/mail.html',
+        controller: 'MailCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

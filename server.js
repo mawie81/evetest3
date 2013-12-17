@@ -38,6 +38,8 @@ app.get('/api/itemsearch/:itemname', api.itemsearch);
 app.get('/api/stationsearch/:stationname', api.stationsearch);
 app.get('/api/fetchprices', api.fetchprices);
 app.get('/api/skillInTraining/:charId', api.skillInTraining);
+app.get('/api/mail/:charId', api.getMails);
+
 
 // Start server
 var port = process.env.PORT || 3000;

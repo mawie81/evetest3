@@ -17,7 +17,9 @@ angular.module('evetest3App')
     });
 
     $scope.getSkillNameInTraining = function(charId) {
-    	if (skillsInTraining[charId] === null) return '';
-    	return skillsInTraining[charId].skillName;
+    	/*eveService.skillInTraining(charId).success(function(skill) {
+            return "Test";
+        });*/
+  return "Test";
     }
   });
