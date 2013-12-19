@@ -5,7 +5,8 @@ angular.module('evetest3App', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ngAnimate'
 ])
   .config(function ($routeProvider) {
     $routeProvider

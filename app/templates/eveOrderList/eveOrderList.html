@@ -11,7 +11,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="order in orders | filter:search" ng-class="order.margin < 0 ? 'danger' : order.margin >= 10 ? 'success' : order.margin >= 5 ? 'warning' : ''">
+		<tr ng-repeat="order in orders | filter:search" ng-class="order.margin < 0 ? 'danger' : order.margin >= 10 ? 'success' : order.margin >= 5 ? 'warning' : ''" class="repeat-animation">
 			<td><img src="http://image.eveonline.com/Type/{{order.typeID}}_32.png" /></td>
 			<td>{{order.type}}</td>
 			<td>{{order.volRemaining}} / {{order.volEntered}}</td>

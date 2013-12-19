@@ -38,7 +38,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="transaction in transactions | filter:searchText | orderBy:sortTransaction.column:sortTransaction.descending" >
+					<tr ng-repeat="transaction in transactions | filter:searchText | orderBy:sortTransaction.column:sortTransaction.descending" class="repeat-animation" >
 						<td><img src="http://image.eveonline.com/Type/{{transaction.typeID}}_32.png" tooltip="{{transaction.description}}" /></td>
 						<td ng-class="transaction.transactionType == 'buy' ? 'text-danger' : 'text-success'">{{transaction.transactionDateTime | date:'dd.MM.yyyy HH:mm:ss'}}</td>
 						<td ng-class="transaction.transactionType == 'buy' ? 'text-danger' : 'text-success'">{{transaction.stationName}}</td>
@@ -61,7 +61,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="transaction in journal | filter:searchText | orderBy:sortJournal.column:sortJournal.descending" >
+					<tr ng-repeat="transaction in journal | filter:searchText | orderBy:sortJournal.column:sortJournal.descending" class="repeat-animation" >
 						<td ng-class="transaction.isWithdrawl ? 'text-danger' : 'text-success'">{{transaction.date | date:'dd.MM.yyyy HH:mm:ss'}}</td>
 						<td ng-class="transaction.isWithdrawl ? 'text-danger' : 'text-success'">{{transaction.refTypeName}}</td>
 						<td ng-class="transaction.isWithdrawl ? 'text-danger' : 'text-success'">{{getParticipant(transaction)}}</td>
